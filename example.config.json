@@ -3,6 +3,5 @@
   "prefix": "PREFIX",
   "developers": ["USER_ID"],
   "status": "STATUS",
-  "avatar": "IMAGE",
   "botInviteLink": "BOT_INVITE_LINK"
 }
