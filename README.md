@@ -1,1 +1,1 @@
-# Stickbot
+# Hangbot
