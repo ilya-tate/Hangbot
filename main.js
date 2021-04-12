@@ -21,6 +21,7 @@ client.on('ready', () => {
 // On guild join
 client.on('guildCreate', guild => {
   console.log(`Joined Guild: ${guild.name} ${guild.id}`);
+  message.channel.send(`Hello, I am Hangbot, the Discord hangman bot. Type ${config.prefix}help for a list of commands`)
 });
 
 client.on('guildDelete', guild => {
