@@ -32,7 +32,7 @@ module.exports = {
       botMsg.delete()
       botMsg = await message.channel.send(new Discord.MessageEmbed()
       .setTitle(`${message.author.username}'s Hangman`)
-      .setDescription(`\`\`\`${displayPhraseBlanks}\`\`\``)
+      .setDescription(`\`\`\`${displayPhraseBlanks}\`\`\`\n"stop-hangman" to stop game`)
       .attachFiles(`./assets/hangman${currentImage}.png`)
       .setImage(`attachment://hangman${currentImage}.png`));
     }
