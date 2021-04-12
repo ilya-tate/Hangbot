@@ -3,5 +3,8 @@
   "prefix": "PREFIX",
   "developers": ["USER_ID"],
   "status": "STATUS",
-  "botInviteLink": "BOT_INVITE_LINK"
+  "botInviteLink": "BOT_INVITE_LINK",
+  "phrases": [
+    "HANGMAN_PHRASE"
+  ]
 }
