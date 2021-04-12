@@ -62,6 +62,7 @@ module.exports = {
           message.channel.send('You died');
           displayPhraseBlanks = currentPhrase;
           sendEmbed()
+          collector.stop();
 
         } else {
           sendEmbed()
