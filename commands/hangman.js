@@ -17,6 +17,8 @@ module.exports = {
       }
     }
 
+    let usedLetters = '';
+
     // Makes displayPhraseBlanks the phrase but with blanks for each nonspace char
     let displayPhraseBlanks = [];
     for (word in currentPhraseBlanks) {
@@ -32,12 +34,12 @@ module.exports = {
       botMsg.delete()
       botMsg = await message.channel.send(new Discord.MessageEmbed()
       .setTitle(`${message.author.username}'s Hangman`)
-      .setDescription(`\`\`\`${displayPhraseBlanks}\`\`\`\n"stop-hangman" to stop game`)
+      .setDescription(`\`\`\`Current Word: ${displayPhraseBlanks}\nIncorrect Characters: ${usedLetters}\`\`\`\n"stop-hangman" to stop game`)
       .attachFiles(`./assets/hangman${currentImage}.png`)
       .setImage(`attachment://hangman${currentImage}.png`));
     }
 
-    sendEmbed()
+    sendEmbed();
     
     const collector = new Discord.MessageCollector(message.channel, messageTemp => messageTemp.author.id === message.author.id);
 
@@ -57,6 +59,12 @@ module.exports = {
       } else if (!currentPhrase.includes(message.content)) {
         // Does the image for how many tries left or if you lose it stops
         currentImage++;
+        if (usedLetters !== '') {
+          usedLetters += `, ${message.content}`;
+        } else {
+          usedLetters += message.content
+        }
+        
 
         if (currentImage == 6) {
           message.channel.send('You died');
@@ -68,7 +76,7 @@ module.exports = {
           sendEmbed()
         }
 
-      } else if(displayPhraseBlanks.includes(message.content)) {
+      } else if(displayPhraseBlanks.includes(message.content) || usedLetters.includes(message.content)) {
         // If char is already unblanked out
         message.channel.send('Character already registered');
 
